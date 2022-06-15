@@ -8,3 +8,10 @@
   border-radius: 20px;
   margin: 20px;
 }
+
+.text-green {
+  color: green;
+}
+.text-blue {
+  color: blue;
+}

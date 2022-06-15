@@ -17,6 +17,22 @@ export const Form = () => {
     },
     [name, age]
   );
+  const [count, setCount] = useState(0);
+
+  function minusCount() {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  }
+
+  function plustCount() {
+    if (count < 10) {
+      setCount(count + 1);
+      function Neew() {
+        setCount(count - 1);
+      }
+    }
+  }
 
   return (
     <div>
@@ -57,6 +73,16 @@ export const Form = () => {
               <button onClick={() => setHandle()}>SUBMIT</button>
             </div>
           </div>
+        </div>
+        <div>
+          <button onClick={minusCount} className="bg-transparent mx-2">
+            minus
+          </button>
+          <span>{count}</span>
+          <button onClick={plustCount} className="bg-transparent mx-2">
+            plus
+          </button>
+          {/* <button onClick={() => new}></button> */}
         </div>
       </div>
     </div>

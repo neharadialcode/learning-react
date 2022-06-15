@@ -19,6 +19,7 @@ const Header = () => {
   function increamentCount() {
     setCount(count + 1);
   }
+  
   return (
     <div>
       <div className="container py-5">
@@ -66,7 +67,10 @@ const Header = () => {
               -
             </button>
             <span>{count}</span>
-            <button onClick={increamentCount} className="btn-dark px-2 mx-2">
+            <button
+              onClick={() => increamentCount()}
+              className="btn-dark px-2 mx-2"
+            >
               +
             </button>
           </div>
@@ -85,6 +89,7 @@ const Header = () => {
               molestiae amet.
             </p>
           </div>
+
         </div>
       </div>
     </div>
