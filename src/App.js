@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import PageOne from "./components/PageOne";
 import PageThree from "./components/PageThree";
 import PageTwo from "./components/PageTwo";
+import PushNavLink from "./components/PushNavLink";
 import TabsNavLinks from "./components/TabsNavLinks";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <>
       <div className="App">
         <div className="d-flex">
-          <TabsNavLinks />
+          {/* <TabsNavLinks /> */}
+          <PushNavLink />
           <Switch>
             <Route exact path="/new/:id" component={ButtonTabs} />
             <Route exact path="/page-one" component={PageOne} />
