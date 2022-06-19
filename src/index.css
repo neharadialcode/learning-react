@@ -19,3 +19,16 @@ code {
   background-color: red !important;
   color: white !important;
 }
+.tab-active {
+  background-color: blue !important;
+  color: white !important;
+}
+.tabs_links {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 100px;
+  height: 40px;
+  padding: 5px 7px;
+  margin-top: 20px;
+  text-decoration: none;
+}
