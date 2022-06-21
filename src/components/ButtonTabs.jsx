@@ -17,7 +17,6 @@ const ButtonTabs = ({ match }) => {
     <div className="">
       {buttonArray.map((obj, index) => (
         <div>
-          {" "}
           <button
             onClick={() => history.push(`/new/${index}`)}
             className={` m-2 ${

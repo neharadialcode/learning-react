@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import { First, List } from "./Helper";
 import { starts } from "./Icon";
 
-function Example() {
+function Stars() {
   // Similar to componentDidMount and componentDidUpdate:
 
   const [smallStar, setSmallStar] = useState(0);
 
   return (
-    <div>
-      <div className="d-flex justify-content-center mt-5  pt-5">
+    <div className="w-100 d-flex flex-column justify-content-center align-items-center vh-100 bg_light_pink">
+      <div className="d-flex justify-content-center ">
         {starts.map((obj, index) => (
           <div key={index} onClick={() => setSmallStar(index + 1)}>
             <div
               className={`mx-2 ${
-                smallStar === 0 ? "" : smallStar >= index + 1 ? "svg_color" : ""
+                smallStar === 0
+                  ? "normal"
+                  : smallStar >= index + 1
+                  ? "svg_color"
+                  : "normal"
               }`}
             >
-              <span> {obj.starUrl}</span>
-              {console.log(setSmallStar, smallStar, "setSmallStar")}
+              <small> {obj.starUrl}</small>
             </div>
           </div>
         ))}
@@ -26,4 +29,4 @@ function Example() {
     </div>
   );
 }
-export default Example;
+export default Stars;

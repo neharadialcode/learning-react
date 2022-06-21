@@ -27,6 +27,13 @@ const TabsNavLinks = () => {
           >
             page-three
           </NavLink>
+          <NavLink
+            to="/rating"
+            activeClassName="tab-active"
+            className="tabs_links"
+          >
+            stars
+          </NavLink>
         </div>
       </div>
     </div>

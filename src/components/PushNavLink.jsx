@@ -41,6 +41,17 @@ const PushNavLink = ({ history }) => {
           Stats
         </button>
       </div>
+      <div className="p-2 text-center">
+        <button
+          className={`common_btn ${active === "/rating" ? "active_btn" : ""}`}
+          onClick={() => {
+            history.push("/rating");
+            setActive("/rating");
+          }}
+        >
+          Stars
+        </button>
+      </div>
     </div>
   );
 };

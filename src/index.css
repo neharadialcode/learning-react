@@ -16,7 +16,13 @@ code {
   fill: red;
   stroke: green;
 }
-
+.normal svg path {
+  fill: white;
+  stroke: green;
+}
+.bg_light_pink {
+  background-color: rgba(137, 234, 243, 0.549);
+}
 .btn-red {
   background-color: red !important;
   color: white !important;

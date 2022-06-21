@@ -8,6 +8,7 @@ import PageOne from "./components/PageOne";
 import PageThree from "./components/PageThree";
 import PageTwo from "./components/PageTwo";
 import PushNavLink from "./components/PushNavLink";
+import Stars from "./components/Stars";
 import TabsNavLinks from "./components/TabsNavLinks";
 
 function App() {
@@ -18,11 +19,12 @@ function App() {
           <div className="d-flex flex-column align-items-center">
             <Bell />
             {/* <TabsNavLinks />  */}
-            {/* <PushNavLink /> */}
+            <PushNavLink />
             <Route exact path="/new/:id" component={ButtonTabs} />
           </div>
 
           <Switch>
+            <Route exact path="/rating" component={Stars} />
             <Route exact path="/page-one" component={PageOne} />
             <Route exact path="/page-two" component={PageTwo} />
             <Route exact path="/page-three" component={PageThree} />
