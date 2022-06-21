@@ -11,18 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .svg_color svg path {
   fill: red;
   stroke: green;
 }
+
 .btn-red {
   background-color: red !important;
   color: white !important;
 }
+
 .tab-active {
   background-color: blue !important;
   color: white !important;
 }
+
 .tabs_links {
   display: inline-block;
   white-space: nowrap;
@@ -32,12 +36,15 @@ code {
   margin-top: 20px;
   text-decoration: none;
 }
+
 .min-w-200 {
   min-width: 200px;
 }
+
 .vh-50 {
   height: 50vh;
 }
+
 .common_btn {
   background-color: black;
   color: white;
@@ -46,6 +53,7 @@ code {
   border-radius: 5px;
   min-width: 150px;
 }
+
 .home {
   background-color: blueviolet;
   display: flex;
@@ -56,6 +64,28 @@ code {
   width: 100%;
   color: white;
 }
+
 .active_btn {
   background-color: red;
+}
+
+.bell {
+  position: relative;
+  padding: 20px;
+}
+
+span {
+  position: absolute;
+  background-color: red;
+  display: inline-block;
+  top: 7%;
+  right: 10%;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
