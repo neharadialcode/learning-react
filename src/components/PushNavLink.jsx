@@ -10,8 +10,8 @@ const PushNavLink = ({ history }) => {
     setActive("/page-two");
   };
   return (
-    <div className="min-w-200 d-flex flex-column justify-content-center vh-50">
-      <div className="p-2">
+    <div className="min-w-200 d-flex flex-column justify-content-center vh_100_custom">
+      <div className="p-2 text-center">
         <button
           className={`common_btn ${active === "/" ? "active_btn" : ""}`}
           onClick={() => {
@@ -22,7 +22,7 @@ const PushNavLink = ({ history }) => {
           Home
         </button>
       </div>
-      <div className="p-2">
+      <div className="p-2 text-center">
         <button
           className={`common_btn ${active === "/page-one" ? "active_btn" : ""}`}
           onClick={() => {
@@ -33,7 +33,7 @@ const PushNavLink = ({ history }) => {
           About
         </button>
       </div>
-      <div className="p-2">
+      <div className="p-2 text-center">
         <button
           className={`common_btn ${active === "/page-two" ? "active_btn" : ""}`}
           onClick={() => pageTwoHandler()}

@@ -5,7 +5,7 @@ const TabsNavLinks = () => {
   return (
     <div>
       <div className="row mx-0">
-        <div className="col-4 vh-100 d-flex flex-column justify-content-center">
+        <div className="col-12 vh_100_custom d-flex flex-column justify-content-center">
           <NavLink
             to="/page-one"
             activeClassName="tab-active"

@@ -15,9 +15,12 @@ function App() {
     <>
       <div className="App">
         <div className="d-flex">
-          <Bell />
-          <TabsNavLinks />
-          {/* <PushNavLink /> */}
+          <div className="d-flex flex-column align-items-center">
+            <Bell />
+            {/* <TabsNavLinks />  */}
+            <PushNavLink />
+          </div>
+
           <Switch>
             <Route exact path="/new/:id" component={ButtonTabs} />
             <Route exact path="/page-one" component={PageOne} />
