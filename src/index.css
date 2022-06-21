@@ -97,3 +97,23 @@ span {
   align-items: center;
   color: white;
 }
+.btn_new {
+  background: green;
+  color: white;
+  min-width: 170px;
+  border: 2px solid red;
+  padding: 7px 20px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.btn_new_active {
+  background: red;
+  color: white;
+  min-width: 170px;
+  border: 2px solid green;
+  padding: 7px 20px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 20px;
+}

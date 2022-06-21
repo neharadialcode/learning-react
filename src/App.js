@@ -18,11 +18,11 @@ function App() {
           <div className="d-flex flex-column align-items-center">
             <Bell />
             {/* <TabsNavLinks />  */}
-            <PushNavLink />
+            {/* <PushNavLink /> */}
+            <Route exact path="/new/:id" component={ButtonTabs} />
           </div>
 
           <Switch>
-            <Route exact path="/new/:id" component={ButtonTabs} />
             <Route exact path="/page-one" component={PageOne} />
             <Route exact path="/page-two" component={PageTwo} />
             <Route exact path="/page-three" component={PageThree} />

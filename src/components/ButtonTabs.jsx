@@ -14,15 +14,20 @@ const ButtonTabs = ({ match }) => {
   const history = useHistory();
 
   return (
-    <div className="m-5 p-5">
+    <div className="">
       {buttonArray.map((obj, index) => (
-        <button
-          onClick={() => history.push(`/new/${index}`)}
-          className={` m-2 ${Number(id) === index ? "btn-red" : "btn-dark"}`}
-        >
-          {obj.one}
-          {console.log(history)}
-        </button>
+        <div>
+          {" "}
+          <button
+            onClick={() => history.push(`/new/${index}`)}
+            className={` m-2 ${
+              Number(id) === index ? "btn_new_active" : "btn_new"
+            }`}
+          >
+            {obj.one}
+            {console.log(history)}
+          </button>
+        </div>
       ))}
     </div>
   );
