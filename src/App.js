@@ -10,6 +10,8 @@ import PageTwo from "./components/PageTwo";
 import PushNavLink from "./components/PushNavLink";
 import Stars from "./components/Stars";
 import TabsNavLinks from "./components/TabsNavLinks";
+import Form from "./components/Form";
+import NewFrom from "./components/NewFrom";
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
             <Route exact path="/page-three" component={PageThree} />
             <Route exact path="/" component={Home} />
             <Route exact path="/notifications" component={Notifications} />
+            <Route exact path="/form" component={NewFrom} />
           </Switch>
         </div>
       </div>
