@@ -12,6 +12,7 @@ import Stars from "./components/Stars";
 import TabsNavLinks from "./components/TabsNavLinks";
 import Form from "./components/Form";
 import NewFrom from "./components/NewFrom";
+import SignInForm from "./components/SignInForm";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/notifications" component={Notifications} />
             <Route exact path="/form" component={NewFrom} />
+            <Route exact path="/sign-in" component={SignInForm} />
           </Switch>
         </div>
       </div>

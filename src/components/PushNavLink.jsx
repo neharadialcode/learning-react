@@ -52,6 +52,17 @@ const PushNavLink = ({ history }) => {
           Stars
         </button>
       </div>
+      <div className="p-2 text-center">
+        <button
+          className={`common_btn ${active === "/sign-in" ? "active_btn" : ""}`}
+          onClick={() => {
+            history.push("/sign-in");
+            setActive("/sign-in");
+          }}
+        >
+          Sign In
+        </button>
+      </div>
     </div>
   );
 };
