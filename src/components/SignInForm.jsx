@@ -1,31 +1,52 @@
 import React from "react";
 import { useState } from "react";
+import { withRouter } from "react-router-dom";
 import { Eye, EyeCross } from "./Icon";
 
-const SignInForm = () => {
-  const [value, setValue] = useState({
+const SignInForm = ({ history }) => {
+  const initialState = {
     name: "",
     email: "",
     userName: "",
     password: "",
     confPassword: "",
-  });
+  };
+  const [dataArray, setDataArray] = useState([]);
+  const [value, setValue] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfPassword, setShowConfPassword] = useState(false);
-
   const [error, setError] = useState(false);
+
   const onSumbitHandler = (e) => {
     e.preventDefault();
     setError(true);
-    setShowPassword(true);
-    setShowConfPassword(true);
+    if (
+      value.email &&
+      value.name &&
+      value.password &&
+      value.userName &&
+      value.confPassword &&
+      regex.test(value.email) === true &&
+      passRegex.test(value.password) === true
+    ) {
+      console.log("value", value);
+      setDataArray((prevState) => [...prevState, value]);
+      setValue(initialState);
+      setError(false);
+    }
+  };
+  const deleteHandler = (index) => {
+    const duplicateArray = [...dataArray];
+    const newArray = duplicateArray.filter((value, i) => i !== index);
+    setDataArray(newArray);
+    console.log(newArray, "newArray");
   };
 
-  const passRegex = new RegExp("^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$");
+  const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
   const regex =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return (
-    <div className="w-100 sign_in vh-100 d-flex flex-column justify-content-center">
+    <div className="w-100 sign_in vh-100 d-flex flex-column justify-content-center position-relative">
       <div className="container w-100 py-4">
         <div className="row justify-content-center">
           <div className="col-lg-4">
@@ -65,7 +86,13 @@ const SignInForm = () => {
                   placeholder="user name"
                 />
                 <p className="text-danger mb-0">
-                  {error && value.userName === "" ? "roll no is requried" : ""}
+                  {error && value.userName === ""
+                    ? "roll no is requried"
+                    : value.userName === ""
+                    ? ""
+                    : value.userName.includes("_")
+                    ? <small className="text-green">exist</small>
+                    : <small>not exist</small>}
                 </p>
               </div>
               <div className="py-2">
@@ -173,8 +200,31 @@ const SignInForm = () => {
           </div>
         </div>
       </div>
+      <div className="vh-100 w-100 bg-pink ">
+        {dataArray.length > 0 &&
+          dataArray.map((item, index) => (
+            <>
+              <div className="row mx-0 justify-content-center">
+                <div className="col-lg-8">
+                  <ul className="d-flex list-unstyled ">
+                    <li className="w-100 custom_bg one">{item.name}</li>
+                    <li className="w-100 custom_bg twoo">{item.email}</li>
+                    <li className="w-100 custom_bg three">{item.userName}</li>
+                    <li className="w-100 custom_bg four">{item.password}</li>
+                    <li className="w-100 custom_bg five">
+                      {item.confPassword}
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-2 ">
+                  <button onClick={() => deleteHandler(index)}>Delete</button>
+                </div>
+              </div>
+            </>
+          ))}
+      </div>
     </div>
   );
 };
 
-export default SignInForm;
+export default withRouter(SignInForm);

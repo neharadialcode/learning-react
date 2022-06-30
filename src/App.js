@@ -13,6 +13,7 @@ import TabsNavLinks from "./components/TabsNavLinks";
 import Form from "./components/Form";
 import NewFrom from "./components/NewFrom";
 import SignInForm from "./components/SignInForm";
+import List from "./components/List";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/notifications" component={Notifications} />
             <Route exact path="/form" component={NewFrom} />
             <Route exact path="/sign-in" component={SignInForm} />
+            <Route exact path="/list" component={List} />
           </Switch>
         </div>
       </div>

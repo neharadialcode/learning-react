@@ -4,6 +4,7 @@
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
+
 .box {
   border-radius: 20px;
   margin: 20px;
@@ -12,6 +13,42 @@
 .text-green {
   color: green;
 }
+
 .text-blue {
   color: blue;
+}
+
+.max-h-400 {
+  max-height: 400px;
+}
+
+.custom_bg {
+  border-right: 2px solid black;
+  /* border-radius: 5px; */
+  padding: 9px 20px;
+  color: white;
+}
+
+.one {
+  background-color: blue;
+}
+
+.twoo {
+  background-color: brown;
+}
+
+.three {
+  background-color: green;
+}
+
+.four {
+  background-color: purple;
+}
+
+.five {
+  background-color: red;
+}
+
+.text-green {
+  color: rgb(62, 195, 84);
 }
