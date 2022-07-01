@@ -55,3 +55,9 @@
 .fill_blue svg path {
   fill: blue;
 }
+.upload_img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+}

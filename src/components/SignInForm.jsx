@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { Eye, EyeCross } from "./Icon";
+import { InlineWidget } from "react-calendly";
 
 const SignInForm = ({ history }) => {
   const initialState = {
@@ -33,6 +34,7 @@ const SignInForm = ({ history }) => {
       setDataArray((prevState) => [...prevState, value]);
       setValue(initialState);
       setError(false);
+      history.push("/list");
     }
   };
   const deleteHandler = (index) => {
@@ -86,13 +88,15 @@ const SignInForm = ({ history }) => {
                   placeholder="user name"
                 />
                 <p className="text-danger mb-0">
-                  {error && value.userName === ""
-                    ? "roll no is requried"
-                    : value.userName === ""
-                    ? ""
-                    : value.userName.includes("_")
-                    ? <small className="text-green">exist</small>
-                    : <small>not exist</small>}
+                  {error && value.userName === "" ? (
+                    "roll no is requried"
+                  ) : value.userName === "" ? (
+                    ""
+                  ) : value.userName.includes("_") ? (
+                    <small className="text-green">exist</small>
+                  ) : (
+                    <small>not exist</small>
+                  )}
                 </p>
               </div>
               <div className="py-2">
@@ -200,7 +204,8 @@ const SignInForm = ({ history }) => {
           </div>
         </div>
       </div>
-      <div className="vh-100 w-100 bg-pink ">
+
+      {/* <div className="vh-100 w-100 bg-pink ">
         {dataArray.length > 0 &&
           dataArray.map((item, index) => (
             <>
@@ -222,7 +227,7 @@ const SignInForm = ({ history }) => {
               </div>
             </>
           ))}
-      </div>
+      </div> */}
     </div>
   );
 };
