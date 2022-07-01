@@ -3,8 +3,6 @@ import { First, List } from "./Helper";
 import { starts } from "./Icon";
 
 function Stars() {
-  // Similar to componentDidMount and componentDidUpdate:
-
   const [smallStar, setSmallStar] = useState(0);
 
   return (
