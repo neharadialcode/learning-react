@@ -124,3 +124,20 @@ export const starts = [
     starUrl: <Star />,
   },
 ];
+export const ballData = [
+  {
+    starUrl: <Ball />,
+  },
+  {
+    starUrl: <Ball />,
+  },
+  {
+    starUrl: <Ball />,
+  },
+  {
+    starUrl: <Ball />,
+  },
+  {
+    starUrl: <Ball />,
+  },
+];

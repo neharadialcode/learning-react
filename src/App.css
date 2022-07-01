@@ -52,3 +52,6 @@
 .text-green {
   color: rgb(62, 195, 84);
 }
+.fill_blue svg path {
+  fill: blue;
+}

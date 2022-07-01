@@ -38,7 +38,7 @@ const PushNavLink = ({ history }) => {
           className={`common_btn ${active === "/page-two" ? "active_btn" : ""}`}
           onClick={() => pageTwoHandler()}
         >
-          Stats
+          Ball
         </button>
       </div>
       <div className="p-2 text-center">
