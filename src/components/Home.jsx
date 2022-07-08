@@ -4,10 +4,24 @@ import natureJpg from "../img/nature.jpg";
 
 const Home = () => {
   const [upload, setUpload] = useState("");
+  const [multiple, setmultiple] = useState();
   const uploadHandler = (e) => {
-    let uploadImg = URL.createObjectURL(e.target.files[0]);
-    console.log(" uploadImg", uploadImg);
-    setUpload(uploadImg);
+    // let uploadImg = e.target.files[0];
+    let file = [];
+    let Images = [];
+    file.push(e.target.files);
+    for (let index = 0; index < file[0].length; index++) {
+      Images.push(URL.createObjectURL(e.target.files[index]));
+    }
+    setmultiple(Images);
+    console.log("sdfghj", multiple);
+
+    // let file = [i];
+    // uploadImg.push((i = 0 < file[0]), i++);
+    // console.log(uploadImg, "uploadImg");
+    // let uploadImg = URL.createObjectURL(e.target.files[0]);
+    // console.log(" uploadImg", uploadImg);
+    // setUpload(uploadImg);
   };
   return (
     <div className="home">
@@ -23,8 +37,15 @@ const Home = () => {
         onChange={(e) => uploadHandler(e)}
         type="file"
         hidden
+        multiple
         accept="png/*"
       />
+      <div className="d-flex flex-wrap w-100">
+        {multiple &&
+          multiple.map((obj, index) => (
+            <img className="w-100 mw-500" src={obj} alt="natureJpg" />
+          ))}
+      </div>
     </div>
   );
 };

@@ -28,7 +28,9 @@
   padding: 9px 20px;
   color: white;
 }
-
+.mw-500 {
+  max-width: 500px;
+}
 .one {
   background-color: blue;
 }
@@ -59,5 +61,6 @@
   width: 500px;
   height: 400px;
   object-fit: cover;
+  object-position: center;
   overflow: hidden;
 }
