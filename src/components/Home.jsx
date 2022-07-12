@@ -7,10 +7,8 @@ const Home = () => {
   const [multiple, setmultiple] = useState();
   const uploadHandler = (e) => {
     // let uploadImg = e.target.files[0];
-    let file = [];
     let Images = [];
-    file.push(e.target.files);
-    for (let index = 0; index < file[0].length; index++) {
+    for (let index = 0; index < e.target.files.length; index++) {
       Images.push(URL.createObjectURL(e.target.files[index]));
     }
     setmultiple(Images);
@@ -25,13 +23,18 @@ const Home = () => {
   };
   return (
     <div className="home">
-      <label htmlFor="upload-image">
-        <img
-          className="upload_img"
-          src={upload ? upload : natureJpg}
-          alt="natureJpg"
-        />
-      </label>
+      {multiple && multiple.length > 0 ? (
+        ""
+      ) : (
+        <label htmlFor="upload-image">
+          <img
+            className="upload_img"
+            src={upload ? upload : natureJpg}
+            alt="natureJpg"
+          />
+        </label>
+      )}
+
       <input
         id="upload-image"
         onChange={(e) => uploadHandler(e)}
@@ -43,7 +46,7 @@ const Home = () => {
       <div className="d-flex flex-wrap w-100">
         {multiple &&
           multiple.map((obj, index) => (
-            <img className="w-100 mw-500" src={obj} alt="natureJpg" />
+            <img className="w-25 mw-500" src={obj} alt="natureJpg" />
           ))}
       </div>
     </div>

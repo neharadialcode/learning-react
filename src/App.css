@@ -29,7 +29,8 @@
   color: white;
 }
 .mw-500 {
-  max-width: 500px;
+  max-width: 200px;
+  max-height: 200px;
 }
 .one {
   background-color: blue;
