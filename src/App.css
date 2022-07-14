@@ -65,3 +65,14 @@
   object-position: center;
   overflow: hidden;
 }
+.normal_box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

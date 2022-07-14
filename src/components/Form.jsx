@@ -23,8 +23,6 @@ const Form = () => {
     rollNo: "",
   });
   const [saveValue, setSaveValue] = useState();
-  console.log(saveValue, "saveValue");
-
   const [count, setCount] = useState(0);
 
   function minusCount() {

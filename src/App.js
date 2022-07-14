@@ -14,6 +14,7 @@ import Form from "./components/Form";
 import NewFrom from "./components/NewFrom";
 import SignInForm from "./components/SignInForm";
 import List from "./components/List";
+import Cards from "./components/Cards";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/form" component={NewFrom} />
             <Route exact path="/sign-in" component={SignInForm} />
             <Route exact path="/list" component={List} />
+            <Route exact path="/cards" component={Cards} />
           </Switch>
         </div>
       </div>
