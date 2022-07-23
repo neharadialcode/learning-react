@@ -43,6 +43,41 @@ const Cards = () => {
             </div>
           </div>
         </div>
+        <div className="row w-50 justify-content-center">
+          <div className="col-sm-3">
+            <div
+              className="normal_box"
+              onClick={() => {
+                setSetIcon(!setIcon);
+                setValue("one");
+              }}
+            >
+              {value === "one" ? <Cross /> : ""}
+            </div>
+          </div>
+          <div className="col-sm-3">
+            <div
+              className="normal_box"
+              onClick={() => {
+                setSetIcon(!setIcon);
+                setValue("two");
+              }}
+            >
+              {value === "two" ? <Cross /> : ""}
+            </div>
+          </div>
+          <div className="col-sm-3">
+            <div
+              className="normal_box"
+              onClick={() => {
+                setSetIcon(!setIcon);
+                setValue("three");
+              }}
+            >
+              {value === "three" ? <Cross /> : ""}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
