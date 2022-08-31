@@ -2,17 +2,31 @@ import React from "react";
 import { useState } from "react";
 
 const DayOne = () => {
-  const data = [
-    {
-      name: "",
-      class: "",
-      age: "",
-      subject: "",
-    },
-  ];
+  const [error, setError] = useState(false);
+  const data = {
+    name: "",
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+  };
+
   const [inputValue, setInputValue] = useState(data);
+
   const OnsubmitHandler = (e) => {
-    console.log(inputValue, "value");
+    setError(true);
+    console.log(error, "error");
+    if (
+      inputValue.name &&
+      inputValue.email &&
+      inputValue.username &&
+      inputValue.password &&
+      inputValue.confirmPassword
+    ) {
+      console.log(inputValue, "value");
+    }
+    // setError(false);
+    // setInputValue(data.name === "");
   };
   return (
     <div>
@@ -34,39 +48,98 @@ const DayOne = () => {
                   id=""
                 />
               </div>
+              {error ? (
+                inputValue.name === "" ? (
+                  <p className="text-danger"> Name is required</p>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
               <div>
-                <label htmlFor="">Class</label>
+                <label htmlFor="">Email</label>
                 <input
                   onChange={(e) =>
-                    setInputValue({ ...inputValue, class: e.target.value })
+                    setInputValue({ ...inputValue, email: e.target.value })
                   }
                   type="text"
                   name=""
                   id=""
                 />
               </div>
+              {error ? (
+                inputValue.email === "" ? (
+                  <p className="text-danger"> Email is required</p>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
               <div>
-                <label htmlFor="">Age</label>
+                <label htmlFor="">Username</label>
                 <input
                   onChange={(e) =>
-                    setInputValue({ ...inputValue, age: e.target.value })
+                    setInputValue({ ...inputValue, username: e.target.value })
                   }
                   type="text"
                   name=""
                   id=""
                 />
               </div>
+              {error ? (
+                inputValue.username === "" ? (
+                  <p className="text-danger"> Username is required</p>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
               <div>
-                <label htmlFor="">Subject</label>
+                <label htmlFor="">Password</label>
                 <input
                   onChange={(e) =>
-                    setInputValue({ ...inputValue, subject: e.target.value })
+                    setInputValue({ ...inputValue, password: e.target.value })
                   }
-                  type="text"
+                  type="password"
                   name=""
                   id=""
                 />
               </div>
+              {error ? (
+                inputValue.password === "" ? (
+                  <p className="text-danger"> password is required</p>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
+              <div>
+                <label htmlFor="">Confirm password</label>
+                <input
+                  onChange={(e) =>
+                    setInputValue({
+                      ...inputValue,
+                      confirmPassword: e.target.value,
+                    })
+                  }
+                  type="password"
+                  name=""
+                  id=""
+                />
+              </div>
+              {error ? (
+                inputValue.confirmPassword === "" ? (
+                  <p className="text-danger"> Confirm Password is required</p>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
               <div className="text-center">
                 <button
                   className="submit_btn border-0"
