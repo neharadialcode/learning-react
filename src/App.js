@@ -15,20 +15,23 @@ import NewFrom from "./components/NewFrom";
 import SignInForm from "./components/SignInForm";
 import List from "./components/List";
 import Cards from "./components/Cards";
+import DayOne from "./components/DayOne";
 
 function App() {
   return (
     <>
       <div className="App">
+        <DayOne />
+        {/* <NewFrom /> */}
         <div className="d-flex">
           <div className="d-flex flex-column align-items-center">
-            <Bell />
+            {/* <Bell /> */}
             {/* <TabsNavLinks />  */}
-            <PushNavLink />
-            <Route exact path="/new/:id" component={ButtonTabs} />
+            {/* <PushNavLink />
+            <Route exact path="/new/:id" component={ButtonTabs} /> */}
           </div>
 
-          <Switch>
+          {/* <Switch>
             <Route exact path="/rating" component={Stars} />
             <Route exact path="/page-one" component={PageOne} />
             <Route exact path="/page-two" component={PageTwo} />
@@ -39,7 +42,7 @@ function App() {
             <Route exact path="/sign-in" component={SignInForm} />
             <Route exact path="/list" component={List} />
             <Route exact path="/cards" component={Cards} />
-          </Switch>
+          </Switch> */}
         </div>
       </div>
     </>

@@ -76,3 +76,30 @@
   justify-content: center;
   align-items: center;
 }
+.input_card {
+  border-radius: 20px;
+  border: 1px solid blue;
+  padding: 20px;
+}
+.input_card div {
+  padding: 20px 0;
+}
+.input_card label {
+  display: block;
+}
+.input_card input {
+  display: block;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid blue;
+}
+input:focus {
+  outline: none;
+}
+.submit_btn {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
