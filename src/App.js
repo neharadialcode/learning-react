@@ -21,19 +21,17 @@ function App() {
   return (
     <>
       <div className="App">
-        <DayOne />
-        {/* <NewFrom /> */}
         <div className="d-flex">
           <div className="d-flex flex-column align-items-center">
-            {/* <Bell /> */}
-            {/* <TabsNavLinks />  */}
-            {/* <PushNavLink />
-            <Route exact path="/new/:id" component={ButtonTabs} /> */}
+            <Bell />
+            {/* <TabsNavLinks /> */}
+            <PushNavLink />
+            <Route exact path="/new/:id" component={ButtonTabs} />
           </div>
 
-          {/* <Switch>
+          <Switch>
             <Route exact path="/rating" component={Stars} />
-            <Route exact path="/page-one" component={PageOne} />
+            <Route exact path="/page-one" component={DayOne} />
             <Route exact path="/page-two" component={PageTwo} />
             <Route exact path="/page-three" component={PageThree} />
             <Route exact path="/" component={Home} />
@@ -42,7 +40,7 @@ function App() {
             <Route exact path="/sign-in" component={SignInForm} />
             <Route exact path="/list" component={List} />
             <Route exact path="/cards" component={Cards} />
-          </Switch> */}
+          </Switch>
         </div>
       </div>
     </>

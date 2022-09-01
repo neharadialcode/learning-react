@@ -15,7 +15,6 @@ const DayOne = () => {
 
   const OnsubmitHandler = (e) => {
     setError(true);
-    console.log(error, "error");
     if (
       inputValue.name &&
       inputValue.email &&
@@ -26,14 +25,15 @@ const DayOne = () => {
       console.log(inputValue, "value");
     }
     // setError(false);
-    // setInputValue(data.name === "");
+    // setInputValue(data.email === "", data.name === "");
   };
+
   return (
-    <div>
+    <div className="w-100 bg-primary">
       <div className="container">
         <div className="row justify-content-center vh-100 align-items-center">
           <div className="col-xl-4 col-lg-6 ">
-            <div className="input_card">
+            <div className="input_card bg-white">
               <div>
                 <label htmlFor="">Name</label>
                 <input
