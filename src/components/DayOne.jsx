@@ -13,7 +13,10 @@ const DayOne = () => {
   };
 
   const [inputValue, setInputValue] = useState(data);
+
+  // FOR INPUT TYPE CHANGE
   const [valueShow, setValueShow] = useState(false);
+  const [valueShow2, setValueShow2] = useState(false);
 
   const emailRegex =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -149,7 +152,7 @@ const DayOne = () => {
                       confirmPassword: e.target.value,
                     })
                   }
-                  type="password"
+                  type={valueShow2 ? "text" : "password"}
                   name=""
                   id=""
                   value={inputValue.confirmPassword}
@@ -157,9 +160,9 @@ const DayOne = () => {
                 {inputValue.confirmPassword !== "" && (
                   <div
                     className="open_eye"
-                    onClick={() => setValueShow(!valueShow)}
+                    onClick={() => setValueShow2(!valueShow2)}
                   >
-                    {valueShow ? <OpenEye /> : <EyeClose />}
+                    {valueShow2 ? <OpenEye /> : <EyeClose />}
                   </div>
                 )}
               </div>
