@@ -103,3 +103,8 @@ input:focus {
   padding: 10px 30px;
   border-radius: 5px;
 }
+.open_eye {
+  position: absolute;
+  top: 0px;
+  right: 0;
+}

@@ -30,7 +30,7 @@ const PushNavLink = ({ history }) => {
             setActive("/page-one");
           }}
         >
-          About
+          Form
         </button>
       </div>
       <div className="p-2 text-center">

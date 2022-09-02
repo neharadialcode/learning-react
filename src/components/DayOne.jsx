@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { EyeClose, OpenEye } from "./Icon";
 
 const DayOne = () => {
   const [error, setError] = useState(false);
@@ -12,6 +13,12 @@ const DayOne = () => {
   };
 
   const [inputValue, setInputValue] = useState(data);
+  const [valueShow, setValueShow] = useState(false);
+
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const passwordRegex =
+    /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
 
   const OnsubmitHandler = (e) => {
     setError(true);
@@ -20,12 +27,14 @@ const DayOne = () => {
       inputValue.email &&
       inputValue.username &&
       inputValue.password &&
-      inputValue.confirmPassword
+      inputValue.confirmPassword !== "" &&
+      emailRegex.test(inputValue.email) &&
+      passwordRegex.test(inputValue.password)
     ) {
       console.log(inputValue, "value");
+      setError(false);
+      setInputValue(data);
     }
-    // setError(false);
-    // setInputValue(data.email === "", data.name === "");
   };
 
   return (
@@ -46,11 +55,12 @@ const DayOne = () => {
                   type="text"
                   name=""
                   id=""
+                  value={inputValue.name}
                 />
               </div>
               {error ? (
                 inputValue.name === "" ? (
-                  <p className="text-danger"> Name is required</p>
+                  <p className="text-danger mb-0"> Name is required</p>
                 ) : (
                   ""
                 )
@@ -66,17 +76,17 @@ const DayOne = () => {
                   type="text"
                   name=""
                   id=""
+                  value={inputValue.email}
                 />
               </div>
-              {error ? (
-                inputValue.email === "" ? (
-                  <p className="text-danger"> Email is required</p>
+              {error &&
+                (inputValue.email === "" ? (
+                  <p className="text-danger mb-0"> Email is required</p>
+                ) : error && emailRegex.test(inputValue.email) === false ? (
+                  <p className="text-danger mb-0">Invalid email</p>
                 ) : (
-                  ""
-                )
-              ) : (
-                ""
-              )}
+                  "valid"
+                ))}
               <div>
                 <label htmlFor="">Username</label>
                 <input
@@ -86,38 +96,51 @@ const DayOne = () => {
                   type="text"
                   name=""
                   id=""
+                  value={inputValue.username}
                 />
               </div>
               {error ? (
                 inputValue.username === "" ? (
-                  <p className="text-danger"> Username is required</p>
+                  <p className="text-danger mb-0"> Username is required</p>
                 ) : (
                   ""
                 )
               ) : (
                 ""
               )}
-              <div>
+              <div className="position-relative">
                 <label htmlFor="">Password</label>
                 <input
                   onChange={(e) =>
                     setInputValue({ ...inputValue, password: e.target.value })
                   }
-                  type="password"
+                  type={valueShow ? "text" : "password"}
                   name=""
                   id=""
+                  value={inputValue.password}
                 />
+                {inputValue.password !== "" && (
+                  <div
+                    className="open_eye"
+                    onClick={() => setValueShow(!valueShow)}
+                  >
+                    {valueShow ? <OpenEye /> : <EyeClose />}
+                  </div>
+                )}
               </div>
               {error ? (
                 inputValue.password === "" ? (
-                  <p className="text-danger"> password is required</p>
+                  <p className="text-danger mb-0"> password is required</p>
                 ) : (
-                  ""
+                  error &&
+                  passwordRegex.test(inputValue.password) === false && (
+                    <p className="text-danger mb-0"> Add strong password</p>
+                  )
                 )
               ) : (
                 ""
               )}
-              <div>
+              <div className="position-relative">
                 <label htmlFor="">Confirm password</label>
                 <input
                   onChange={(e) =>
@@ -129,13 +152,26 @@ const DayOne = () => {
                   type="password"
                   name=""
                   id=""
+                  value={inputValue.confirmPassword}
                 />
+                {inputValue.confirmPassword !== "" && (
+                  <div
+                    className="open_eye"
+                    onClick={() => setValueShow(!valueShow)}
+                  >
+                    {valueShow ? <OpenEye /> : <EyeClose />}
+                  </div>
+                )}
               </div>
               {error ? (
                 inputValue.confirmPassword === "" ? (
-                  <p className="text-danger"> Confirm Password is required</p>
+                  <p className="text-danger mb-0">
+                    Confirm Password is required
+                  </p>
                 ) : (
-                  ""
+                  inputValue.confirmPassword !== inputValue.password && (
+                    <p className="text-danger mb-0">Password not Matched</p>
+                  )
                 )
               ) : (
                 ""
