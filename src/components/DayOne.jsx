@@ -17,12 +17,14 @@ const DayOne = () => {
   // FOR INPUT TYPE CHANGE
   const [valueShow, setValueShow] = useState(false);
   const [valueShow2, setValueShow2] = useState(false);
+  const [arrayData, setArrayData] = useState([]);
 
   const emailRegex =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   const passwordRegex =
     /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
 
+  const userNameRegex = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
   const OnsubmitHandler = (e) => {
     setError(true);
     if (
@@ -32,9 +34,13 @@ const DayOne = () => {
       inputValue.password &&
       inputValue.confirmPassword !== "" &&
       emailRegex.test(inputValue.email) &&
-      passwordRegex.test(inputValue.password)
+      passwordRegex.test(inputValue.password) &&
+      userNameRegex.test(inputValue.username)
     ) {
-      console.log(inputValue, "value");
+      // console.log(inputValue, "value");
+      arrayData.push(inputValue);
+      setArrayData(arrayData);
+      console.log("New array", arrayData, inputValue);
       setError(false);
       setInputValue(data);
     }
@@ -88,7 +94,7 @@ const DayOne = () => {
                 ) : error && emailRegex.test(inputValue.email) === false ? (
                   <p className="text-danger mb-0">Invalid email</p>
                 ) : (
-                  "valid"
+                  ""
                 ))}
               <div>
                 <label htmlFor="">Username</label>
@@ -106,7 +112,9 @@ const DayOne = () => {
                 inputValue.username === "" ? (
                   <p className="text-danger mb-0"> Username is required</p>
                 ) : (
-                  ""
+                  userNameRegex.test(inputValue.username) === false && (
+                    <p className="text-danger mb-0"> invalid username</p>
+                  )
                 )
               ) : (
                 ""
@@ -189,6 +197,51 @@ const DayOne = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container">
+        <div>
+          {arrayData.length > 0 && (
+            <table class="table table-sm table-dark">
+              <thead>
+                <tr>
+                  <th className="ps-3" scope="col">
+                    Name
+                  </th>
+                  <th className="ps-3" scope="col">
+                    Email
+                  </th>
+                  <th className="ps-3" scope="col">
+                    Username
+                  </th>
+                  <th className="ps-3" scope="col">
+                    Password
+                  </th>
+                  <th className="ps-3" scope="col">
+                    ConfirmPassword
+                  </th>
+                  <th className="ps-3" scope="col">
+                    Remove
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {arrayData &&
+                  arrayData.map((obj, index) => (
+                    <tr key={index}>
+                      <td className="ps-3">{obj.name}</td>
+                      <td className="ps-3"> {obj.email}</td>
+                      <td className="ps-3"> {obj.username}</td>
+                      <td className="ps-3"> {obj.password}</td>
+                      <td className="ps-3"> {obj.confirmPassword}</td>
+                      <td className="ps-3">
+                        <button className="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </div>
