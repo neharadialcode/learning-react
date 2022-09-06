@@ -45,12 +45,22 @@ const DayOne = () => {
       setInputValue(data);
     }
   };
-
+  const [colorChange, setcolorChange] = useState("");
   return (
     <div className="w-100 bg-primary">
       <div className="container">
         <div className="row justify-content-center vh-100 align-items-center">
           <div className="col-xl-4 col-lg-6 ">
+            <div className="text-center">
+              <input
+                type="text"
+                placeholder="add color"
+                onChange={(e) => setcolorChange(e.target.value)}
+              />
+              <p style={{ color: `${colorChange}` }}>
+                Hello every one type something to change color
+              </p>
+            </div>
             <div className="input_card bg-white">
               <div>
                 <label htmlFor="">Name</label>
