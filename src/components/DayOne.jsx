@@ -37,7 +37,7 @@ const DayOne = () => {
       passwordRegex.test(inputValue.password) &&
       userNameRegex.test(inputValue.username)
     ) {
-      // console.log(inputValue, "value");
+      console.log(inputValue, "value");
       arrayData.push(inputValue);
       setArrayData(arrayData);
       console.log("New array", arrayData, inputValue);
