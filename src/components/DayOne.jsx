@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { EyeClose, OpenEye } from "./Icon";
 
@@ -13,6 +14,7 @@ const DayOne = () => {
   };
 
   const [inputValue, setInputValue] = useState(data);
+  const [changeState, setChangeState] = useState(false);
 
   // FOR INPUT TYPE CHANGE
   const [valueShow, setValueShow] = useState(false);
@@ -37,15 +39,22 @@ const DayOne = () => {
       passwordRegex.test(inputValue.password) &&
       userNameRegex.test(inputValue.username)
     ) {
-      console.log(inputValue, "value");
+      // console.log(inputValue, "value");
       arrayData.push(inputValue);
-      setArrayData(arrayData);
-      console.log("New array", arrayData, inputValue);
+      // console.log("New array", arrayData, inputValue);
       setError(false);
       setInputValue(data);
     }
   };
   const [colorChange, setcolorChange] = useState("");
+  const deleteHandler = (index) => {
+    let newArray = arrayData.splice(index, 1);
+    console.log("index0", newArray);
+  };
+
+  // useEffect(() => {
+  //   setArrayData(arrayData);
+  // }, [arrayData]);
   return (
     <div className="w-100 bg-primary">
       <div className="container">
@@ -245,7 +254,12 @@ const DayOne = () => {
                       <td className="ps-3"> {obj.password}</td>
                       <td className="ps-3"> {obj.confirmPassword}</td>
                       <td className="ps-3">
-                        <button className="btn btn-danger">Delete</button>
+                        <button
+                          onClick={(index) => deleteHandler(index)}
+                          className="btn btn-danger"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
