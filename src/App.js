@@ -16,6 +16,7 @@ import SignInForm from "./components/SignInForm";
 import List from "./components/List";
 import Cards from "./components/Cards";
 import DayOne from "./components/DayOne";
+import ImageUpload from "./components/ImageUpload";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/sign-in" component={SignInForm} />
             <Route exact path="/list" component={List} />
             <Route exact path="/cards" component={Cards} />
+            <Route exact path="/image-upload" component={ImageUpload} />
           </Switch>
         </div>
       </div>

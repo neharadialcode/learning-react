@@ -63,6 +63,19 @@ const PushNavLink = ({ history }) => {
           Sign In
         </button>
       </div>
+      <div className="p-2 text-center">
+        <button
+          className={`common_btn ${
+            active === "/image-upload" ? "active_btn" : ""
+          }`}
+          onClick={() => {
+            history.push("/image-upload");
+            setActive("/image-upload");
+          }}
+        >
+          Upload img
+        </button>
+      </div>
     </div>
   );
 };
