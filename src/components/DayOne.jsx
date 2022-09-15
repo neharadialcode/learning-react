@@ -48,13 +48,18 @@ const DayOne = () => {
   };
   const [colorChange, setcolorChange] = useState("");
   const deleteHandler = (index) => {
-    let newArray = arrayData.splice(index, 1);
-    console.log("index0", newArray);
+    console.log(index, "index");
+    console.log(arrayData, "arrayDataarrayData");
+    arrayData.splice(index, 1);
+    setChangeState(!changeState);
+    console.log(arrayData, "dfghjkl;");
   };
 
-  // useEffect(() => {
-  //   setArrayData(arrayData);
-  // }, [arrayData]);
+  useEffect(() => {
+    setArrayData(arrayData);
+  }, [changeState]);
+
+  console.log(arrayData, "aaaaaaaaaaaaaaaaa");
   return (
     <div className="w-100 bg-primary">
       <div className="container">
@@ -255,7 +260,7 @@ const DayOne = () => {
                       <td className="ps-3"> {obj.confirmPassword}</td>
                       <td className="ps-3">
                         <button
-                          onClick={(index) => deleteHandler(index)}
+                          onClick={() => deleteHandler(index)}
                           className="btn btn-danger"
                         >
                           Delete
