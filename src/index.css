@@ -154,3 +154,12 @@ span {
   right: 10px;
   transform: translateY(-50%);
 }
+.logout_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px 8px 10px;
+}

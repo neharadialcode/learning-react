@@ -33,11 +33,9 @@ const DayOne = ({ history }) => {
    *
    */
   useEffect(() => {
-    console.log("bbbbbbbbb====", isSignUpValue);
-
     if (isSignUpValue === "true") {
-      console.log("aaaaaaaaaaaaaaa====", isSignUpValue);
       history.push("/");
+      window.location.reload();
     }
   }, [isSignUpValue]);
 
@@ -58,28 +56,21 @@ const DayOne = ({ history }) => {
       userNameRegex.test(inputValue.username)
     ) {
       localStorage.setItem("isSignup", true);
-      history.push("/");
-      // console.log(inputValue, "value");
       arrayData.push(inputValue);
-      // console.log("New array", arrayData, inputValue);
       setError(false);
       setInputValue(data);
     }
   };
   const [colorChange, setcolorChange] = useState("");
   const deleteHandler = (index) => {
-    console.log(index, "index");
-    console.log(arrayData, "arrayDataarrayData");
     arrayData.splice(index, 1);
     setChangeState(!changeState);
-    console.log(arrayData, "dfghjkl;");
   };
 
   useEffect(() => {
     setArrayData(arrayData);
   }, [changeState]);
 
-  console.log(isSignUpValue, "isSignUpValue");
   return (
     <div className="w-100 bg-primary">
       <div className="container">

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import natureJpg from "../img/nature.jpg";
 
-const Home = () => {
+const Home = ({ history }) => {
+  const isSignUpValue = localStorage.getItem("isSignup");
   const [upload, setUpload] = useState("");
   const [multiple, setmultiple] = useState();
   const uploadHandler = (e) => {
@@ -21,6 +22,21 @@ const Home = () => {
     // console.log(" uploadImg", uploadImg);
     // setUpload(uploadImg);
   };
+  const logOutHandler = () => {
+    localStorage.setItem("isSignup", false);
+    history.push("/sign-up");
+    window.location.reload();
+  };
+
+  // useEffect(() => {
+  //   // console.log("bbbbbbbbb====", isSignUpValue);
+
+  //   if (isSignUpValue === "false" && isSignUpValue === "null") {
+  //     // console.log("aaaaaaaaaaaaaaa====", isSignUpValue);
+  //     history.push("/sign-up");
+  //   }
+  // }, [isSignUpValue]);
+
   return (
     <div className="home">
       {multiple && multiple.length > 0 ? (
@@ -46,8 +62,22 @@ const Home = () => {
       <div className="d-flex flex-wrap w-100">
         {multiple &&
           multiple.map((obj, index) => (
-            <img className="w-25 mw-500" src={obj} alt="natureJpg" />
+            <img
+              key={index}
+              className="w-25 mw-500"
+              src={obj}
+              alt="natureJpg"
+            />
           ))}
+      </div>
+      <div>
+        <button
+          onClick={() => logOutHandler()}
+          className="logout_btn"
+          type="button"
+        >
+          LogOut
+        </button>
       </div>
     </div>
   );
