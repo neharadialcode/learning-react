@@ -30,7 +30,18 @@ const PushNavLink = ({ history }) => {
             setActive("/page-one");
           }}
         >
-          Form
+          Signin Form
+        </button>
+      </div>
+      <div className="p-2 text-center">
+        <button
+          className={`common_btn ${active === "/log-in" ? "active_btn" : ""}`}
+          onClick={() => {
+            history.push("/log-in");
+            setActive("/log-in");
+          }}
+        >
+          Login Form
         </button>
       </div>
       <div className="p-2 text-center">
@@ -52,7 +63,7 @@ const PushNavLink = ({ history }) => {
           Stars
         </button>
       </div>
-      <div className="p-2 text-center">
+      {/* <div className="p-2 text-center">
         <button
           className={`common_btn ${active === "/sign-in" ? "active_btn" : ""}`}
           onClick={() => {
@@ -62,8 +73,8 @@ const PushNavLink = ({ history }) => {
         >
           Sign In
         </button>
-      </div>
-      <div className="p-2 text-center">
+      </div> */}
+      {/* <div className="p-2 text-center">
         <button
           className={`common_btn ${
             active === "/image-upload" ? "active_btn" : ""
@@ -75,7 +86,7 @@ const PushNavLink = ({ history }) => {
         >
           Upload img
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { EyeClose, OpenEye } from "./Icon";
 
-const DayOne = () => {
+const DayOne = ({ history }) => {
+  const isSignUpValue = localStorage.getItem("isSignup");
   const [error, setError] = useState(false);
   const data = {
     name: "",
@@ -27,6 +28,23 @@ const DayOne = () => {
     /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
 
   const userNameRegex = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
+
+  /**
+   *
+   */
+  useEffect(() => {
+    console.log("bbbbbbbbb====", isSignUpValue);
+
+    if (isSignUpValue === "true") {
+      console.log("aaaaaaaaaaaaaaa====", isSignUpValue);
+      history.push("/");
+    }
+  }, [isSignUpValue]);
+
+  /**
+   *
+   * @param {event} e
+   */
   const OnsubmitHandler = (e) => {
     setError(true);
     if (
@@ -39,6 +57,8 @@ const DayOne = () => {
       passwordRegex.test(inputValue.password) &&
       userNameRegex.test(inputValue.username)
     ) {
+      localStorage.setItem("isSignup", true);
+      history.push("/");
       // console.log(inputValue, "value");
       arrayData.push(inputValue);
       // console.log("New array", arrayData, inputValue);
@@ -59,11 +79,16 @@ const DayOne = () => {
     setArrayData(arrayData);
   }, [changeState]);
 
-  console.log(arrayData, "aaaaaaaaaaaaaaaaa");
+  console.log(isSignUpValue, "isSignUpValue");
   return (
     <div className="w-100 bg-primary">
       <div className="container">
         <div className="row justify-content-center vh-100 align-items-center">
+          <div className="text-center">
+            <button className="text-white border-0 bg-transparent">
+              Login
+            </button>
+          </div>
           <div className="col-xl-4 col-lg-6 ">
             <div className="text-center">
               <input
@@ -223,6 +248,7 @@ const DayOne = () => {
           </div>
         </div>
       </div>
+
       <div className="container">
         <div>
           {arrayData.length > 0 && (
