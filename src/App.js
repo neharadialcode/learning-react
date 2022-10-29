@@ -3,6 +3,7 @@ import "./App.css";
 import Bell from "./components/Bell";
 import ButtonTabs from "./components/ButtonTabs";
 import Cards from "./components/Cards";
+import Circle from "./components/Circle";
 import DayOne from "./components/DayOne";
 import Home from "./components/Home";
 import ImageUpload from "./components/ImageUpload";
@@ -15,6 +16,7 @@ import PageTwo from "./components/PageTwo";
 import PushNavLink from "./components/PushNavLink";
 import SignInForm from "./components/SignInForm";
 import Stars from "./components/Stars";
+import UseMemo from "./components/UseMemo";
 
 function App() {
   const isSignUpValue = localStorage.getItem("isSignup");
@@ -22,9 +24,10 @@ function App() {
   return (
     <>
       <div className="App">
+        {/* <Circle /> */}
         <div className="d-flex">
           <div className="d-flex flex-column align-items-center">
-            <Bell /> {/* <TabsNavLinks /> */} <PushNavLink />
+            <Bell /> <PushNavLink />
             <Route exact path="/new/:id" component={ButtonTabs} />
           </div>
           <Switch>
@@ -44,9 +47,11 @@ function App() {
             ) : (
               <>
                 <Route exact path="/sign-up" component={DayOne} />
+                <Route exact path="/" component={DayOne} />
                 <Route exact path="/log-in" component={LoginForm} />
               </>
             )}
+            {/* <Route exact path="/use-memo" component={UseMemo} /> */}
           </Switch>
         </div>
       </div>
