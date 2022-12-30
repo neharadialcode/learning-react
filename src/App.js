@@ -8,6 +8,7 @@ import DayOne from "./components/DayOne";
 import Home from "./components/Home";
 import ImageUpload from "./components/ImageUpload";
 import List from "./components/List";
+import LocalStorage from "./components/LocalStorage";
 import LoginForm from "./components/LoginForm";
 import NewFrom from "./components/NewFrom";
 import Notifications from "./components/Notifications";
@@ -19,8 +20,8 @@ import Stars from "./components/Stars";
 import UseMemo from "./components/UseMemo";
 
 function App() {
-  const isSignUpValue = localStorage.getItem("isSignup");
-  console.log(isSignUpValue, "isSignUpValue");
+  // const isSignUpValue = localStorage.getItem("isSignup");
+  // console.log(isSignUpValue, "isSignUpValue");
   return (
     <>
       <div className="App">
@@ -31,27 +32,29 @@ function App() {
             <Route exact path="/new/:id" component={ButtonTabs} />
           </div>
           <Switch>
-            {isSignUpValue === "true" ? (
-              <>
-                <Route exact path="/rating" component={Stars} />
-                <Route exact path="/form" component={NewFrom} />
-                <Route exact path="/page-two" component={PageTwo} />
-                <Route exact path="/page-three" component={PageThree} />
-                <Route exact path="/" component={Home} />
-                <Route exact path="/notifications" component={Notifications} />
-                <Route exact path="/sign-in" component={SignInForm} />
-                <Route exact path="/list" component={List} />
-                <Route exact path="/cards" component={Cards} />
-                <Route exact path="/image-upload" component={ImageUpload} />
-              </>
-            ) : (
-              <>
-                <Route exact path="/sign-up" component={DayOne} />
-                <Route exact path="/" component={DayOne} />
-                <Route exact path="/log-in" component={LoginForm} />
-              </>
-            )}
-            {/* <Route exact path="/use-memo" component={UseMemo} /> */}
+            {/* {isSignUpValue === "true" ? (
+                    <>
+                      <Route exact path="/rating" component={Stars} />
+                      <Route exact path="/use-memo" component={UseMemo} />
+                      <Route exact path="/form" component={NewFrom} />
+                      <Route exact path="/page-two" component={PageTwo} />
+                      <Route exact path="/page-three" component={PageThree} />
+                      <Route exact path="/" component={Home} />
+                      <Route exact path="/notifications" component={Notifications} />
+                      <Route exact path="/sign-in" component={SignInForm} />
+                      <Route exact path="/list" component={List} />
+                      <Route exact path="/cards" component={Cards} />
+                      <Route exact path="/image-upload" component={ImageUpload} />
+                    </>
+                  ) : (
+                    <>
+                      <Route exact path="/sign-up" component={DayOne} />
+                      <Route exact path="/" component={DayOne} />
+                      <Route exact path="/log-in" component={LoginForm} />
+                    </>
+                  )} */}
+            <Route exact path="/use-memo" component={UseMemo} />
+            <Route exact path="/local-storage" component={LocalStorage} />
           </Switch>
         </div>
       </div>

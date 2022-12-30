@@ -50,10 +50,22 @@ const PushNavLink = ({ history }) => {
               Stars
             </button>
           </div>
+          <div className="p-2 text-center">
+            <button
+              className={`common_btn ${
+                active === "/use-memo" ? "active_btn" : ""
+              }`}
+              onClick={() => {
+                history.push("/use-memo");
+                setActive("/use-memo");
+              }}
+            >
+              Use Memo
+            </button>
+          </div>
         </>
       ) : (
         <>
-          {" "}
           <div className="p-2 text-center">
             <button
               className={`common_btn ${
@@ -79,7 +91,7 @@ const PushNavLink = ({ history }) => {
             >
               Login Form
             </button>
-          </div>{" "}
+          </div>
         </>
       )}
       {/* ) : (

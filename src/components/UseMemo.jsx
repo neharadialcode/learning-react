@@ -11,17 +11,27 @@ const UseMemo = () => {
     color: dark ? "white" : "black",
   };
   return (
-    <div>
-      <input
-        type="number"
-        value={number}
-        onChange={(e) => setNumber(parseInt(e.target.value))}
-      />
-      <button onClick={() => setDark((prevDark) => !prevDark)}>
-        change color
-      </button>
-      <div style={themeStyle} className="ps-1">
-        {doubleNumber}
+    <div className="d-flex flex-column justify-content-center align-content-center w-100 ">
+      <div className="row justify-content-center mx-0">
+        <div className="col-3 ">
+          <input
+            className="w-100"
+            type="number"
+            value={number}
+            onChange={(e) => setNumber(parseInt(e.target.value))}
+          />
+          <div style={themeStyle} className="ps-1 mt-2 py-1 rounded">
+            {doubleNumber}
+          </div>
+          <div className="py-2">
+            <button
+              className="btn btn-dark"
+              onClick={() => setDark((prevDark) => !prevDark)}
+            >
+              change color
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
